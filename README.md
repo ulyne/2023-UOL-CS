@@ -3,7 +3,7 @@ Storage for homework, worksheets, notes, code and admin records for UOL CS progr
 
 ## HOMEWORK
 <p>
-**incomplete**ITP 1 WEEK 1 HW - uploaded on 11/10/23
+__incomplete__ ITP 1 WEEK 1 HW - uploaded on 11/10/23
 </p>
 
 ## ADMIN RECORDS
