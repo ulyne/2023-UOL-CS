@@ -1,12 +1,9 @@
 # 2023-UOL-CS-Sem-1
 Storage for homework, worksheets, notes, code and admin records for UOL CS program Semester 1 (tentatively)
 
-## HOMEWORK
-<p>
-ITP 1 WEEK 1 HW - uploaded on 11/10/23 --incomplete
-</p>
-
 ## ADMIN RECORDS
 <p>
-uploaded HW & WS from ITP 1 on 11/10/23 (Q6 not done)
+-11/10/23 uploaded HW & WS from ITP 1 (Q6 not done)
+
+-02/01/23 created CM 1015,1020,1030 folders and uploaded CM 1015,1020 Mid-Term Papers 
 </p>
