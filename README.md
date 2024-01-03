@@ -6,4 +6,6 @@ Storage for homework, worksheets, notes, code and admin records for UOL CS progr
 -11/10/23 uploaded HW & WS from ITP 1 (Q6 not done)
 
 -02/01/23 created CM 1015,1020,1030 folders and uploaded CM 1015,1020 Mid-Term Papers 
+
+-03/01/23 uploaded all solved Sleuth Rookie Cases for ITP 1 
 </p>
