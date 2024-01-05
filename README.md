@@ -10,4 +10,6 @@ Storage for homework, worksheets, notes, code and admin records for UOL CS progr
 -03/01/23 uploaded all solved Sleuth Rookie Cases for ITP 1 
 
 -04/01/23 uploaded temp progress for ITP 1 mid-term assignment
+
+-05/01/23 uploaded HCW Mid-Term Essay
 </p>
