@@ -2,10 +2,6 @@
 
 The Game Project
 
-Week 3
-
-Game interaction
-
 */
 
 //character initialisation 
@@ -24,8 +20,11 @@ var isPlummeting;
 var collectable;
 var dist_from_collectable;
 var canyon;
+var mountains;
+var clouds;
 
 var trees_x;
+var treesPos_y;
 
 function setup() {
 	createCanvas(1024, 576);
@@ -43,7 +42,15 @@ function setup() {
     //need to update positions for collectables and canyon and delete this comment
     collectable = {x_pos: 200, y_pos: floorPos_y-10, size: 40, isFound: false};
     canyon = {x_pos: 600, width: 100};
-    trees_x = [];
+    mountains = [{x_pos: 50, y_pos: floorPos_y-175, height: 350, width: 100},
+                 {x_pos: 150,y_pos:floorPos_y-75, height: 150, width: 50},
+                 {x_pos: 300,y_pos:floorPos_y-125, height: 250, width: 200}];
+    clouds = [{x_pos: 100, y_pos: 100},
+              {x_pos:250, y_pos: 150},
+              {x_pos:500, y_pos: 80}];
+    
+    trees_x = [100,500,900,1150];
+    treesPos_y = floorPos_y;
     
 }
 
@@ -51,28 +58,60 @@ function draw()
 {
 
 	///////////DRAWING CODE//////////
-
 	background(100,155,255); //fill the sky blue
-
 
 	noStroke();
 	fill(0,155,0);
 	rect(0, floorPos_y, width, height - floorPos_y); //draw some green ground
 
 	//draw the canyon
+    fill(0,0,0);
+    rect(canyon.x_pos, floorPos_y, canyon.width, height-floorPos_y);
+    fill(255,0,0);
+    ellipse(canyon.x_pos,floorPos_y,10,10);
     
     //draw the collectable
     if (collectable.isFound == false){
         //enter the drawing code for collectable
+        fill(255,0,0);
+        ellipse(collectable.x_pos,collectable.y_pos,10,10);
+    }
+    //draw the trees
+    for (var i = 0; i < trees_x.length; i++){
+        fill(100,50,0);
+        rect(trees_x[i] - 25,-150 + treesPos_y,50,150);
+        fill(0,100,0);
+        triangle(
+            trees_x[i]-75, treesPos_y-150,
+            trees_x[i],treesPos_y-300,
+            trees_x[i]+75, treesPos_y-150
+        );
+    }
+    //draw the clouds
+    for (var i = 0; i < clouds.length; i++){
+        fill(255);
+        ellipse(clouds[i].x_pos, clouds[i].y_pos, 84, 84);
+        ellipse(clouds[i].x_pos-40, clouds[i].y_pos, 50, 50);
+        ellipse(clouds[i].x_pos+40, clouds[i].y_pos, 50, 50);
+        fill(255,0,0);
+        ellipse(clouds[i].x_pos,clouds[i].y_pos,10,10)
+    }
+    //draw the mountains
+    for (var i=0; i < mountains.length; i++){
+        var x1 = mountains[i].x_pos - mountains[i].width/2;
+        var y1 = mountains[i].y_pos + mountains[i].height/2;
+        var x2 = mountains[i].x_pos;
+        var y2 = mountains[i].y_pos - mountains[i].height/2;
+        var x3 = mountains[i].x_pos + mountains[i].width/2;
+        var y3 = mountains[i].y_pos + mountains[i].height/2;
+        fill(130,108,52);
+        triangle(x1,y1,x2,y2,x3,y3);
+        fill(255,0,0);
+        ellipse(mountains[i].x_pos, mountains[i].y_pos, 10,10);
     }
     
-    //draw the trees
-    
-    //draw the clouds
-    
-    //draw the mountains
-    
 
+    /*
 	//the game character
 	if(isLeft && isFalling)
 	{
@@ -104,9 +143,14 @@ function draw()
 		// add your standing front facing code
 
 	}
+    */
 
 	///////////INTERACTION CODE//////////
 	//Put conditional statements to move the game character below here
+    if((gameChar_y == floorPos_y) && (gameChar_x-gameChar_width/2>(canyon.x_pos)) && gameChar_x + gameChar_width/2<(canyon.x_pos + canyon.width)){
+        isPlummeting = true;
+    }
+    
     if(isPlummeting){
         gameChar_y += 20;
     }
